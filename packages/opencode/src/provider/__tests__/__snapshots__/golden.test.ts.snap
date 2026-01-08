@@ -1,0 +1,6750 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`Provider Golden Tests Message Normalization anthropic normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization anthropic normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization anthropic handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization anthropic handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openai normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openai normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openai handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openai handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization amazon-bedrock normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization amazon-bedrock normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization amazon-bedrock handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization amazon-bedrock handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization azure normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization azure normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization azure handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization azure handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google-vertex normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google-vertex normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google-vertex handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization google-vertex handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization github-copilot normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization github-copilot normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization github-copilot handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization github-copilot handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openrouter normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openrouter normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openrouter handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization openrouter handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cloudflare-ai-gateway normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cloudflare-ai-gateway normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cloudflare-ai-gateway handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cloudflare-ai-gateway handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cerebras normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cerebras normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cerebras handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cerebras handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization groq normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization groq normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "call_abc123!@#$%^&*()",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization groq handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization groq handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization mistral normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization mistral normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization mistral handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization mistral handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization xai normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization xai normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization xai handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization xai handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization deepinfra normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization deepinfra normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization deepinfra handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization deepinfra handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cohere normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cohere normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cohere handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization cohere handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization togetherai normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization togetherai normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization togetherai handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization togetherai handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization perplexity normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization perplexity normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization perplexity handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization perplexity handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization opencode normalizes standard messages 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization opencode normalizes tool call messages 1`] = `
+[
+  {
+    "content": "Please search for information about TypeScript.",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "TypeScript",
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "results": [
+            "TypeScript is a typed superset of JavaScript",
+          ],
+        },
+        "toolCallId": "callabc12",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": "Based on my search, TypeScript is a typed superset of JavaScript.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization opencode handles empty content messages 1`] = `
+[
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+  {
+    "content": "",
+    "role": "assistant",
+  },
+  {
+    "content": "",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "",
+        "type": "text",
+      },
+      {
+        "text": "Valid content",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization opencode handles unsupported modalities 1`] = `
+[
+  {
+    "content": [
+      {
+        "text": "What is in this video?",
+        "type": "text",
+      },
+      {
+        "text": "ERROR: Cannot read "test.mp4" (this model does not support video input). Inform the user.",
+        "type": "text",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization Mistral-specific inserts assistant message between tool and user 1`] = `
+[
+  {
+    "content": "Search for something",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "args": {
+          "query": "test",
+        },
+        "toolCallId": "call12345",
+        "toolName": "search",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": [
+      {
+        "result": {
+          "data": "result",
+        },
+        "toolCallId": "call12345",
+        "toolName": "search",
+        "type": "tool-result",
+      },
+    ],
+    "role": "tool",
+  },
+  {
+    "content": [
+      {
+        "text": "Done.",
+        "type": "text",
+      },
+    ],
+    "role": "assistant",
+  },
+  {
+    "content": "Thanks, now do something else",
+    "role": "user",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Message Normalization Interleaved thinking transforms reasoning parts to providerOptions for reasoning_content field 1`] = `
+[
+  {
+    "content": "What is 2+2?",
+    "role": "user",
+  },
+  {
+    "content": [
+      {
+        "text": "The answer is 4.",
+        "type": "text",
+      },
+    ],
+    "providerOptions": {
+      "openaiCompatible": {
+        "reasoning_content": "I need to add 2 and 2 together.",
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Provider Golden Tests Options Building builds options for anthropic 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for openai 1`] = `
+{
+  "promptCacheKey": "test-session-123",
+}
+`;
+
+exports[`Provider Golden Tests Options Building builds options for amazon-bedrock 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for azure 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for google 1`] = `
+{
+  "thinkingConfig": {
+    "includeThoughts": true,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Options Building builds options for google-vertex 1`] = `
+{
+  "thinkingConfig": {
+    "includeThoughts": true,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Options Building builds options for github-copilot 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for openrouter 1`] = `
+{
+  "usage": {
+    "include": true,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Options Building builds options for cloudflare-ai-gateway 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for cerebras 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for groq 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for mistral 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for xai 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for deepinfra 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for cohere 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for togetherai 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for perplexity 1`] = `{}`;
+
+exports[`Provider Golden Tests Options Building builds options for opencode 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for anthropic (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for anthropic (reasoning model) 1`] = `
+{
+  "high": {
+    "thinking": {
+      "budgetTokens": 16000,
+      "type": "enabled",
+    },
+  },
+  "max": {
+    "thinking": {
+      "budgetTokens": 31999,
+      "type": "enabled",
+    },
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for openai (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for openai (reasoning model) 1`] = `
+{
+  "high": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "high",
+    "reasoningSummary": "auto",
+  },
+  "low": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "low",
+    "reasoningSummary": "auto",
+  },
+  "medium": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "medium",
+    "reasoningSummary": "auto",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for amazon-bedrock (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for amazon-bedrock (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningConfig": {
+      "maxReasoningEffort": "high",
+      "type": "enabled",
+    },
+  },
+  "low": {
+    "reasoningConfig": {
+      "maxReasoningEffort": "low",
+      "type": "enabled",
+    },
+  },
+  "medium": {
+    "reasoningConfig": {
+      "maxReasoningEffort": "medium",
+      "type": "enabled",
+    },
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for azure (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for azure (reasoning model) 1`] = `
+{
+  "high": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "high",
+    "reasoningSummary": "auto",
+  },
+  "low": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "low",
+    "reasoningSummary": "auto",
+  },
+  "medium": {
+    "include": [
+      "reasoning.encrypted_content",
+    ],
+    "reasoningEffort": "medium",
+    "reasoningSummary": "auto",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for google (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for google (reasoning model) 1`] = `
+{
+  "high": {
+    "includeThoughts": true,
+    "thinkingLevel": "high",
+  },
+  "low": {
+    "includeThoughts": true,
+    "thinkingLevel": "low",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for google-vertex (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for google-vertex (reasoning model) 1`] = `
+{
+  "high": {
+    "includeThoughts": true,
+    "thinkingLevel": "high",
+  },
+  "low": {
+    "includeThoughts": true,
+    "thinkingLevel": "low",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for github-copilot (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for github-copilot (reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for openrouter (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for openrouter (reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cloudflare-ai-gateway (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cloudflare-ai-gateway (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cerebras (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cerebras (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for groq (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for groq (reasoning model) 1`] = `
+{
+  "high": {
+    "includeThoughts": true,
+    "thinkingLevel": "high",
+  },
+  "low": {
+    "includeThoughts": true,
+    "thinkingLevel": "low",
+  },
+  "medium": {
+    "includeThoughts": true,
+    "thinkingLevel": "medium",
+  },
+  "none": {
+    "includeThoughts": true,
+    "thinkingLevel": "none",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for mistral (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for mistral (reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for xai (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for xai (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for deepinfra (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for deepinfra (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cohere (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for cohere (reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for togetherai (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for togetherai (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for perplexity (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for perplexity (reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for opencode (non-reasoning model) 1`] = `{}`;
+
+exports[`Provider Golden Tests Variants Configuration returns variants for opencode (reasoning model) 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for anthropic 1`] = `
+{
+  "anthropic": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for openai 1`] = `
+{
+  "openai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for amazon-bedrock 1`] = `
+{
+  "bedrock": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for azure 1`] = `
+{
+  "openai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for google 1`] = `
+{
+  "google": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for google-vertex 1`] = `
+{
+  "google": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for github-copilot 1`] = `
+{
+  "openai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for openrouter 1`] = `
+{
+  "openrouter": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for cloudflare-ai-gateway 1`] = `
+{
+  "cloudflare-ai-gateway": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for cerebras 1`] = `
+{
+  "cerebras": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for groq 1`] = `
+{
+  "groq": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for mistral 1`] = `
+{
+  "mistral": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for xai 1`] = `
+{
+  "xai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for deepinfra 1`] = `
+{
+  "deepinfra": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for cohere 1`] = `
+{
+  "cohere": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for togetherai 1`] = `
+{
+  "togetherai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for perplexity 1`] = `
+{
+  "perplexity": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Provider Options Wrapping wraps options correctly for opencode 1`] = `
+{
+  "opencode": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for anthropic 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for openai 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for amazon-bedrock 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for azure 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for google 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for google-vertex 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for github-copilot 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for openrouter 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for cloudflare-ai-gateway 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for cerebras 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for groq 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for mistral 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for xai 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for deepinfra 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for cohere 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for togetherai 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for perplexity 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Default Values returns defaults for opencode 1`] = `
+{
+  "temperature": undefined,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for anthropic 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for openai 1`] = `
+{
+  "reasoningEffort": "minimal",
+}
+`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for amazon-bedrock 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for azure 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for google 1`] = `
+{
+  "thinkingConfig": {
+    "thinkingBudget": 0,
+  },
+}
+`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for google-vertex 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for github-copilot 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for openrouter 1`] = `
+{
+  "reasoningEffort": "minimal",
+}
+`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for cloudflare-ai-gateway 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for cerebras 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for groq 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for mistral 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for xai 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for deepinfra 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for cohere 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for togetherai 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for perplexity 1`] = `{}`;
+
+exports[`Provider Golden Tests Small Model Options returns small options for opencode 1`] = `{}`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for anthropic 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for openai 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for amazon-bedrock 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for azure 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for google 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for google-vertex 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for github-copilot 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for openrouter 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for cloudflare-ai-gateway 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for cerebras 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for groq 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for mistral 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for xai 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for deepinfra 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for cohere 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for togetherai 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for perplexity 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Max Output Tokens Calculation calculates correctly for opencode 1`] = `
+{
+  "globalLimited": 16000,
+  "modelLimited": 2048,
+  "noThinking": 4096,
+  "withThinking": 32000,
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for anthropic 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for openai 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for amazon-bedrock 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for azure 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for google 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        "1",
+        "2",
+        "3",
+      ],
+      "type": "string",
+    },
+    "items": {
+      "items": {},
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for google-vertex 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for github-copilot 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for openrouter 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for cloudflare-ai-gateway 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for cerebras 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for groq 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for mistral 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for xai 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for deepinfra 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for cohere 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for togetherai 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for perplexity 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Provider Golden Tests Schema Transformation transforms schema for opencode 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "items": {
+      "type": "array",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+    "count",
+    "nonexistent",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`Edge Cases Special characters in tool IDs sanitizes special chars for anthropic 1`] = `
+[
+  {
+    "content": [
+      {
+        "args": {},
+        "toolCallId": "____________-________________",
+        "toolName": "test",
+        "type": "tool-call",
+      },
+    ],
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Edge Cases Special characters in tool IDs sanitizes special chars for mistral 1`] = `
+[
+  {
+    "content": [
+      {
+        "args": {},
+        "toolCallId": "000000000",
+        "toolName": "test",
+        "type": "tool-call",
+      },
+    ],
+    "role": "assistant",
+  },
+]
+`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for anthropic 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for anthropic 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for anthropic 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for anthropic 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for openai 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for openai 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for openai 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for openai 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for amazon-bedrock 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for amazon-bedrock 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for amazon-bedrock 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for amazon-bedrock 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for azure 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for azure 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for azure 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for azure 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for google 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for google 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for google 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for google 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for google-vertex 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for google-vertex 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for google-vertex 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for google-vertex 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for github-copilot 1`] = `
+"The requested model is not supported
+
+Make sure the model is enabled in your copilot settings: https://github.com/settings/copilot/features"
+`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for github-copilot 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for github-copilot 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for github-copilot 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for openrouter 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for openrouter 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for openrouter 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for openrouter 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for cloudflare-ai-gateway 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for cloudflare-ai-gateway 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for cloudflare-ai-gateway 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for cloudflare-ai-gateway 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for cerebras 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for cerebras 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for cerebras 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for cerebras 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for groq 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for groq 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for groq 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for groq 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for mistral 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for mistral 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for mistral 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for mistral 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for xai 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for xai 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for xai 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for xai 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for deepinfra 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for deepinfra 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for deepinfra 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for deepinfra 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for cohere 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for cohere 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for cohere 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for cohere 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for togetherai 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for togetherai 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for togetherai 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for togetherai 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for perplexity 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for perplexity 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for perplexity 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for perplexity 1`] = `"Context length exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms model not supported error for opencode 1`] = `"The requested model is not supported"`;
+
+exports[`Error Transformation Error transformation snapshots transforms rate limit error for opencode 1`] = `"Rate limit exceeded"`;
+
+exports[`Error Transformation Error transformation snapshots transforms invalid key error for opencode 1`] = `"Invalid API key"`;
+
+exports[`Error Transformation Error transformation snapshots transforms context exceeded error for opencode 1`] = `"Context length exceeded"`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for glm-4.6 1`] = `
+{
+  "temperature": 1,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for glm-4.7 1`] = `
+{
+  "temperature": 1,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for minimax-m2 1`] = `
+{
+  "temperature": 1,
+  "topK": 20,
+  "topP": 0.95,
+}
+`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for minimax-m2.1 1`] = `
+{
+  "temperature": 1,
+  "topK": 40,
+  "topP": 0.95,
+}
+`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for kimi-k2 1`] = `
+{
+  "temperature": 0.6,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Model-Specific Defaults Combined defaults snapshots returns correct defaults for kimi-k2-thinking 1`] = `
+{
+  "temperature": 1,
+  "topK": undefined,
+  "topP": undefined,
+}
+`;
+
+exports[`Caching Behavior Differences Anthropic caching format caching format matches snapshot 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "role": "user",
+  },
+  {
+    "content": "Hi there!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "How are you?",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Caching Behavior Differences Amazon Bedrock caching format uses cachePoint in providerOptions structure 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Caching Behavior Differences OpenRouter caching format uses cacheControl in provider options 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "role": "user",
+  },
+  {
+    "content": "Hi there!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "How are you?",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Caching Behavior Differences Caching comparison across providers captures caching behavior for anthropic 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "role": "user",
+  },
+  {
+    "content": "Hi there!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "How are you?",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Caching Behavior Differences Caching comparison across providers captures caching behavior for amazon-bedrock 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "role": "user",
+  },
+  {
+    "content": "Hi there!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "How are you?",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Caching Behavior Differences Caching comparison across providers captures caching behavior for openrouter 1`] = `
+[
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": "Hello",
+    "role": "user",
+  },
+  {
+    "content": "Hi there!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "How are you?",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "user",
+  },
+]
+`;
+
+exports[`Extended Variants Coverage XAI variants returns reasoning effort variants for reasoning models 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage DeepInfra variants returns reasoning effort variants for reasoning models 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage TogetherAI variants returns reasoning effort variants for reasoning models 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Cerebras variants returns reasoning effort variants for reasoning models 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Groq variants returns thinkingLevel variants for reasoning models 1`] = `
+{
+  "high": {
+    "includeThoughts": true,
+    "thinkingLevel": "high",
+  },
+  "low": {
+    "includeThoughts": true,
+    "thinkingLevel": "low",
+  },
+  "medium": {
+    "includeThoughts": true,
+    "thinkingLevel": "medium",
+  },
+  "none": {
+    "includeThoughts": true,
+    "thinkingLevel": "none",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for xai reasoning model 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for xai non-reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for deepinfra reasoning model 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for deepinfra non-reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for cohere reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for cohere non-reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for togetherai reasoning model 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for togetherai non-reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for perplexity reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for perplexity non-reasoning model 1`] = `{}`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for cerebras reasoning model 1`] = `
+{
+  "high": {
+    "reasoningEffort": "high",
+  },
+  "low": {
+    "reasoningEffort": "low",
+  },
+  "medium": {
+    "reasoningEffort": "medium",
+  },
+}
+`;
+
+exports[`Extended Variants Coverage Variants snapshot comparison captures variant structure for cerebras non-reasoning model 1`] = `{}`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for xai 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for deepinfra 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for cohere 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for togetherai 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for perplexity 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Message normalization normalizes messages for opencode 1`] = `
+[
+  {
+    "content": "Hello, how are you?",
+    "role": "user",
+  },
+  {
+    "content": "I'm doing well, thank you for asking!",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "assistant",
+  },
+  {
+    "content": "You are a helpful assistant.",
+    "providerOptions": {
+      "anthropic": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+      "bedrock": {
+        "cachePoint": {
+          "type": "ephemeral",
+        },
+      },
+      "openaiCompatible": {
+        "cache_control": {
+          "type": "ephemeral",
+        },
+      },
+      "openrouter": {
+        "cacheControl": {
+          "type": "ephemeral",
+        },
+      },
+    },
+    "role": "system",
+  },
+  {
+    "content": [
+      {
+        "text": "What is in this image?",
+        "type": "text",
+      },
+      {
+        "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+        "type": "image",
+      },
+    ],
+    "role": "user",
+  },
+]
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for xai 1`] = `
+{
+  "xai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for deepinfra 1`] = `
+{
+  "deepinfra": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for cohere 1`] = `
+{
+  "cohere": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for togetherai 1`] = `
+{
+  "togetherai": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for perplexity 1`] = `
+{
+  "perplexity": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Provider options wrapping wraps options correctly for opencode 1`] = `
+{
+  "opencode": {
+    "maxTokens": 1000,
+    "temperature": 0.7,
+  },
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for xai 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for deepinfra 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for cohere 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for togetherai 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for perplexity 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Schema transformation transforms schema for opencode 1`] = `
+{
+  "properties": {
+    "count": {
+      "enum": [
+        1,
+        2,
+        3,
+      ],
+      "type": "integer",
+    },
+    "name": {
+      "type": "string",
+    },
+  },
+  "required": [
+    "name",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`New Provider Coverage Options building builds options for xai 1`] = `{}`;
+
+exports[`New Provider Coverage Options building builds options for deepinfra 1`] = `{}`;
+
+exports[`New Provider Coverage Options building builds options for cohere 1`] = `{}`;
+
+exports[`New Provider Coverage Options building builds options for togetherai 1`] = `{}`;
+
+exports[`New Provider Coverage Options building builds options for perplexity 1`] = `{}`;
+
+exports[`New Provider Coverage Options building builds options for opencode 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for xai 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for deepinfra 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for cohere 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for togetherai 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for perplexity 1`] = `{}`;
+
+exports[`New Provider Coverage Small model options returns small options for opencode 1`] = `{}`;
